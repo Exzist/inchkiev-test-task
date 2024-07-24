@@ -23,6 +23,27 @@
       <div class="slider-item">
         <div class="slider-item__wrapper">
           <p class="slider-item__text">Lorem ipsum dolor sit amet</p>
+          <h2 class="slider-item__title">
+            <span class="slider-item__title-text slider-item__title-text_bold"
+              >Lorem ipsum</span
+            >
+            <span class="slider-item__title-text">Lorem ipsum dolor —</span>
+            <span class="slider-item__title-text">lorem</span>
+            <span class="slider-item__title-text">ipsum !</span>
+          </h2>
+          <p class="slider-item__subtitle">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </p>
+          <p class="slider-item__pagination">
+            {{
+              `${swiperInstance?.realIndex + 1}/${
+                swiperInstance?.slides.length
+              }`
+            }}
+          </p>
+          <button class="slider-item__button-next" ref="buttonNextInstance">
+            Дивитися далі Дивитися далі Дивитися далі
+          </button>
           <div class="slider-item__image">
             <img src="/media/svg/slider-image.svg" alt="slider image" />
           </div>
