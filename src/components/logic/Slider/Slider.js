@@ -1,8 +1,8 @@
-import { EffectCreative } from "swiper/modules";
+import { EffectCreative, EffectCards } from "swiper/modules";
 import { ref } from "vue";
 
 export function Slider(props, { emit }) {
-  const modules = [EffectCreative];
+  const modules = [EffectCreative, EffectCards];
   const sliderItems = [
     { color: "#027D84" },
     { color: "#4A989A" },
@@ -10,20 +10,21 @@ export function Slider(props, { emit }) {
   ];
 
   const swiperInstance = ref();
-  const buttonNextInstance = ref();
+  const buttonTextInstance = ref();
 
   const onSwiper = (swiper) => {
     swiperInstance.value = swiper;
-    buttonNextInstance.value[0].innerHTML =
-      buttonNextInstance.value[0].innerText
+    buttonTextInstance.value.forEach((el) => {
+      el.innerHTML = buttonTextInstance.value[0].innerText
         .split("")
         .map(
           (char, i) =>
             `<span style="transform:rotate(${
-              i * (360 / buttonNextInstance.value[0].innerText.split("").length)
+              i * (360 / buttonTextInstance.value[0].innerText.split("").length)
             }deg)">${char}</span>`
         )
         .join("");
+    });
   };
 
   const nextSlide = () => {
@@ -43,6 +44,6 @@ export function Slider(props, { emit }) {
     nextSlide,
     onSwiper,
     sliderItems,
-    buttonNextInstance,
+    buttonTextInstance,
   };
 }

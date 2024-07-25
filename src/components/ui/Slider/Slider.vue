@@ -4,17 +4,18 @@
     :allowTouchMove="true"
     :loop="true"
     @swiper="onSwiper"
-    :creativeEffect="{
-      prev: {
-        shadow: true,
-        translate: [0, 0, -400],
-      },
-      next: {
-        translate: ['100%', 0, 0],
-      },
-    }"
+    :speed="1000"
     :modules="modules"
     class="slider"
+    :creativeEffect="{
+      limitProgress: 2,
+      prev: {
+        translate: ['6%', 0, 0],
+      },
+      next: {
+        translate: ['3.2%', 0, 0],
+      },
+    }"
   >
     <swiper-slide
       v-for="slide in sliderItems"
@@ -41,8 +42,11 @@
               }`
             }}
           </p>
-          <button class="slider-item__button-next" ref="buttonNextInstance">
-            Дивитися далі Дивитися далі Дивитися далі
+          <button class="slider-item__button-next" @click="nextSlide()">
+            <img src="/media/svg/arrow.svg" alt="arrow icon" />
+            <p class="slider-item__button-next-text" ref="buttonTextInstance">
+              Дивитися далі &nbsp;Дивитися далі &nbsp;Дивитися далі&nbsp;
+            </p>
           </button>
           <div class="slider-item__image">
             <img src="/media/svg/slider-image.svg" alt="slider image" />
@@ -54,7 +58,6 @@
       </div>
     </swiper-slide>
   </swiper>
-  <button @click="nextSlide()">next</button>
 </template>
 
 <script>

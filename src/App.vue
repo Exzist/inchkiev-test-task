@@ -15,5 +15,5 @@ export default defineComponent({
 @import "src/assets/scss/style.scss";
 @import "swiper/scss";
 @import "swiper/scss/effect-creative";
-@import "swiper/scss/pagination";
+@import "swiper/scss/effect-cards";
 </style>
